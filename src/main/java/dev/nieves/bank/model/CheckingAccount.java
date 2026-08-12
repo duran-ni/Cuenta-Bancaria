@@ -1,5 +1,7 @@
 package dev.nieves.bank.model;
 
+import java.util.Locale;
+
 /**
  * Representa una cuenta corriente.
  * Hereda el comportamiento base de Account y añade la lógica de sobregiro.
@@ -47,13 +49,14 @@ public class CheckingAccount extends Account {
      * y el valor del sobregiro de la cuenta corriente.
      */
     @Override
-    public String printAccount() {
-        int transactionsCount = this.depositsCount + this.withdrawalsCount;
-        return String.format(
-            "Balance: %.2f | Monthly fee: %.2f | Transactions: %d | Overdraft: %.2f",
-            balance, monthlyFee, transactionsCount, overdraft
-        );
-    }
+public String printAccount() {
+    int transactionsCount = this.depositsCount + this.withdrawalsCount;
+    return String.format(
+        Locale.US,
+        "Balance: %.2f | Monthly fee: %.2f | Transactions: %d | Overdraft: %.2f",
+        balance, monthlyFee, transactionsCount, overdraft
+    );
+}
 
     public float getOverdraft() {
         return overdraft;

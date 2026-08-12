@@ -1,5 +1,7 @@
 package dev.nieves.bank.model;
 
+import java.util.Locale;
+
 /**
  * Representa una cuenta bancaria genérica.
  * Sirve como superclase para SavingsAccount y CheckingAccount.
@@ -48,11 +50,12 @@ public class Account {
     }
 
     public String printAccount() {
-        return String.format(
-            "Balance: %.2f | Deposits: %d | Withdrawals: %d | Annual rate: %.2f%% | Monthly fee: %.2f",
-            balance, depositsCount, withdrawalsCount, annualRate, monthlyFee
-        );
-    }
+    return String.format(
+        Locale.US,
+        "Balance: %.2f | Deposits: %d | Withdrawals: %d | Annual rate: %.2f%% | Monthly fee: %.2f",
+        balance, depositsCount, withdrawalsCount, annualRate, monthlyFee
+    );
+}
 
     public float getBalance() {
         return balance;

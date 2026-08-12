@@ -1,5 +1,7 @@
 package dev.nieves.bank.model;
 
+import java.util.Locale;
+
 /**
  * Representa una cuenta de ahorros.
  * Hereda el comportamiento base de Account y añade la lógica
@@ -49,13 +51,14 @@ public class SavingsAccount extends Account {
      * (consignaciones + retiros) de la cuenta de ahorros.
      */
     @Override
-    public String printAccount() {
-        int transactionsCount = this.depositsCount + this.withdrawalsCount;
-        return String.format(
-            "Balance: %.2f | Monthly fee: %.2f | Transactions: %d",
-            balance, monthlyFee, transactionsCount
-        );
-    }
+public String printAccount() {
+    int transactionsCount = this.depositsCount + this.withdrawalsCount;
+    return String.format(
+        Locale.US,
+        "Balance: %.2f | Monthly fee: %.2f | Transactions: %d",
+        balance, monthlyFee, transactionsCount
+    );
+}
 
     public boolean isActive() {
         return active;
